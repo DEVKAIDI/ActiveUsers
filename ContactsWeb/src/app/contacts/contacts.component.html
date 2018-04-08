@@ -1,0 +1,29 @@
+<div class="container">
+<div class="card">
+  <div class="card-header"> List des contacts  </div>
+  <div class="card-body">
+
+    <div class="form-group">
+      <label> Mot clé :   </label>
+      <input type="text" [(ngModel)]="motCle"/>
+      <button class="btn btn-primary" (click)="chercher()" > Chercher </button>
+    </div>
+
+    <table class="table table-striped">
+      <tr><th>Id</th> <th>Nom</th></tr>
+      <tr *ngFor="let contact of dataContacts?.content ">
+      <td> {{contact.id}}</td>
+        <td>{{contact.nom}}</td>
+      </tr>
+    </table>
+    <div class="container">
+        <ul class="nav nav-pills">
+          <li [ngClass]="{'active':i==page}" *ngFor="let p of pages; let i = index">
+           <a (click)="goToPage(i)" class="marginleft"> {{i}} </a>
+          </li>
+        </ul>
+    </div>
+  </div>
+</div>
+</div>
+
